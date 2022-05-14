@@ -5,12 +5,12 @@ import {
   ActivityIndicator,
   Dimensions,
   StyleSheet,
+  useColorScheme,
   Appearance,
 } from "react-native";
 import styled from "styled-components/native";
 import { BlurView } from "expo-blur";
 import { makeImgPath } from "../utils";
-import { useColorScheme } from "react-native";
 import Swiper from "react-native-swiper";
 
 const API_KEY = "b1abc7c7e5978de88700bb4fc535fafc";
@@ -38,7 +38,7 @@ const Poster = styled.Image`
 const Title = styled.Text<{ isDark: boolean }>`
   font-size: 16px;
   font-weight: 600;
-  color: ${(props) => (props.isDark ? "white" : "red")};
+  color: ${(props) => (props.isDark ? "white" : props.theme.textColor)};
 `;
 
 const Wrapper = styled.View`
@@ -114,7 +114,7 @@ const Movies: React.FC<NativeStackScreenProps<any, "Movies">> = () => {
                 <Column>
                   <Title isDark={isDark}>{movie.original_title}</Title>
                   {movie.vote_average > 0 ? (
-                    <Votes isDark={isDark}>{movie.vote_average}/10</Votes>
+                    <Votes isDark={isDark}>⭐️ {movie.vote_average}/10</Votes>
                   ) : null}
                   <Overview isDark={isDark}>
                     {movie.overview.slice(0, 100)}...
