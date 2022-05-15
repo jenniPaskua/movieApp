@@ -1,18 +1,12 @@
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import React, { useEffect, useState } from "react";
-import {
-  ActivityIndicator,
-  Dimensions,
-  RefreshControl,
-  FlatList,
-  View,
-  Text,
-} from "react-native";
+import { ActivityIndicator, Dimensions, FlatList } from "react-native";
 import styled from "styled-components/native";
 import Swiper from "react-native-swiper";
 import Slide from "../components/Slide";
 import HMedia from "../components/HMedia";
 import VMedia from "../components/VMedia";
+import { QueryClient, QueryClientProvider } from "react-query";
 
 const API_KEY = "b1abc7c7e5978de88700bb4fc535fafc";
 
