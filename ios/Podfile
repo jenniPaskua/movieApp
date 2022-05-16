@@ -36,6 +36,8 @@ target 'movie' do
   post_install do |installer|
     react_native_post_install(installer)
     __apply_Xcode_12_5_M1_post_install_workaround(installer)
+    
+  pod 'movie', :path => '../node_modules/@react-native-firebase/app'
   end
 
   post_integrate do |installer|
